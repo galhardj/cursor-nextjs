@@ -1,0 +1,11 @@
+@reference "../../app/globals.css";
+
+.header {
+  @apply w-full border-b border-[#8a0028];
+}
+.container {
+  @apply max-w-7xl mx-auto px-4 py-4 flex items-center justify-between;
+}
+.bar {
+  @apply h-2 bg-[#8a0028];
+}

@@ -1,0 +1,14 @@
+@reference "../../app/globals.css";
+
+.root {
+  @apply w-full;
+}
+.heading {
+  @apply text-3xl md:text-4xl font-semibold text-gray-900 mb-4;
+}
+.lead {
+  @apply text-gray-700 mb-4;
+}
+.body {
+  @apply text-gray-700 mb-6;
+}

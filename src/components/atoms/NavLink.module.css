@@ -1,0 +1,5 @@
+@reference "../../app/globals.css";
+
+.link {
+  @apply text-gray-800 hover:text-[#8a0028] transition-colors text-[16px];
+}

@@ -1,0 +1,11 @@
+@reference "../../app/globals.css";
+
+.root {
+  @apply w-full;
+}
+.frame {
+  @apply relative w-full rounded overflow-hidden;
+}
+.image {
+  @apply object-cover;
+}

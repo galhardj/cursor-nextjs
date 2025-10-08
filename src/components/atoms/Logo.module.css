@@ -1,0 +1,8 @@
+@reference "../../app/globals.css";
+
+.root {
+  @apply flex items-center gap-2 text-[#8a0028];
+}
+.text {
+  @apply text-xl font-semibold tracking-wide;
+}
