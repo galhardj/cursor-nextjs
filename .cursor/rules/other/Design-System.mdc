@@ -1,0 +1,213 @@
+# Design System & Quality Assurance Rules
+
+## Overview
+Comprehensive design system, file organization, and quality assurance guidelines
+
+## Purpose
+Ensures consistent visual design, proper file organization, and high-quality code standards
+
+## Design System
+
+### Brand Colors
+- ✅ **Primary Brand:** `#8a0028` (dark red/maroon)
+- ✅ **Text Colors:** 
+  - Default: `text-gray-800`
+  - Secondary: `text-gray-700`
+  - Muted: `text-gray-500`
+- ✅ **Hover States:** Always transition to brand color for interactive elements
+- ✅ **Borders:** 
+  - Primary: `border-[#8a0028]` (brand color)
+  - Secondary: `border-gray-200` (subtle gray)
+
+### Typography Scale
+- ✅ **Logo:** `text-xl font-semibold tracking-wide`
+- ✅ **Navigation:** `text-[16px]` (fixed size for consistency)
+- ✅ **Section Headers:** `text-lg font-semibold`
+- ✅ **Copyright:** `text-xs text-gray-500`
+- ✅ **Body Text:** Default Tailwind text sizes
+
+### Spacing System
+- ✅ **Container Max Width:** `max-w-7xl mx-auto` (1280px)
+- ✅ **Horizontal Padding:** `px-4` (16px)
+- ✅ **Vertical Spacing:**
+  - Header: `py-4` (16px)
+  - Footer: `py-10` (40px)
+- ✅ **Component Gaps:**
+  - Major spacing: `gap-8` (32px)
+  - Minor spacing: `gap-4` (16px)
+  - Link spacing: `space-y-2` (8px)
+
+### Layout Patterns
+- ✅ **Container Pattern:** `max-w-7xl mx-auto px-4`
+- ✅ **Flex Layouts:** `flex items-center justify-between`
+- ✅ **Grid Layouts:** `grid grid-cols-2 md:grid-cols-4`
+- ✅ **Responsive Design:** Mobile-first with `md:` breakpoints
+
+## File Organization
+
+### Directory Structure
+```
+src/
+├── components/
+│   ├── atoms/
+│   │   ├── Logo.tsx
+│   │   └── NavLink.tsx
+│   ├── molecules/
+│   │   ├── NavBar.tsx
+│   │   ├── FooterLinks.tsx
+│   │   └── SocialLinks.tsx
+│   └── organisms/
+│       ├── __tests__/
+│       │   ├── Header.spec.tsx
+│       │   └── Footer.spec.tsx
+│       ├── Header.tsx
+│       └── Footer.tsx
+├── constants/
+│   ├── navigation.ts
+│   └── footer.ts
+└── app/
+    ├── layout.tsx
+    ├── page.tsx
+    └── globals.css
+```
+
+### Import Patterns
+- ✅ **Absolute Imports:** Use `@/` alias for all imports
+- ✅ **Component Imports:** Import from specific component files
+- ✅ **Constant Imports:** Import from `@/constants/` directory
+- ✅ **Export Pattern:** Always provide both named and default exports
+
+### Naming Conventions
+- ✅ **Components:** PascalCase (e.g., `Header`, `NavBar`)
+- ✅ **Files:** PascalCase for components, camelCase for utilities
+- ✅ **Constants:** UPPER_SNAKE_CASE (e.g., `NAV_ITEMS`, `FOOTER_SECTIONS`)
+- ✅ **Types:** PascalCase with descriptive names (e.g., `NavItem`, `FooterSection`)
+
+## Component Architecture
+
+### Atomic Design Principles
+- ✅ **Atoms:** Basic building blocks (Logo, NavLink)
+- ✅ **Molecules:** Simple groups of atoms (NavBar, FooterLinks, SocialLinks)
+- ✅ **Organisms:** Complex components (Header, Footer)
+- ✅ **Composition:** Components compose other components, not duplicate code
+
+### Component Responsibilities
+- ✅ **Single Responsibility:** Each component has one clear purpose
+- ✅ **Reusability:** Components are designed for reuse
+- ✅ **Composition:** Use composition over inheritance
+- ✅ **Props Interface:** Clear, minimal prop interfaces
+
+### Data Flow
+- ✅ **Constants:** Centralized data in constants files
+- ✅ **Props:** Minimal props, prefer composition
+- ✅ **State:** Local state when needed, avoid prop drilling
+- ✅ **External Data:** Handle through proper data fetching patterns
+
+## Code Quality Standards
+
+### TypeScript Requirements
+- ✅ **Type Safety:** All components have proper type definitions
+- ✅ **Interface Design:** Clear, minimal interfaces
+- ✅ **Type Exports:** Export types for reuse
+- ✅ **Strict Mode:** Follow strict TypeScript practices
+
+### Styling Standards
+- ✅ **Tailwind CSS:** Use Tailwind classes consistently
+- ✅ **Custom Colors:** Use brand colors consistently
+- ✅ **Responsive Design:** Mobile-first approach
+- ✅ **Accessibility:** Proper contrast and focus states
+
+### Performance Guidelines
+- ✅ **Bundle Size:** Keep components lightweight
+- ✅ **Re-renders:** Minimize unnecessary re-renders
+- ✅ **Lazy Loading:** Use when appropriate
+- ✅ **Code Splitting:** Follow Next.js patterns
+
+## Accessibility Standards
+
+### Semantic HTML
+- ✅ **Proper Elements:** Use semantic HTML elements
+- ✅ **Headings:** Proper heading hierarchy
+- ✅ **Lists:** Use proper list elements
+- ✅ **Links:** Proper link structure and navigation
+
+### ARIA Guidelines
+- ✅ **Labels:** Use aria-label for interactive elements
+- ✅ **Roles:** Use proper ARIA roles when needed
+- ✅ **States:** Indicate component states
+- ✅ **Navigation:** Ensure keyboard navigation works
+
+### Visual Accessibility
+- ✅ **Contrast:** Ensure sufficient color contrast
+- ✅ **Focus States:** Visible focus indicators
+- ✅ **Text Size:** Readable text sizes
+- ✅ **Spacing:** Adequate spacing for touch targets
+
+## Quality Assurance Checklist
+
+### Pre-Development
+- ✅ **Requirements:** Clear understanding of component requirements
+- ✅ **Design:** Follow established design patterns
+- ✅ **Architecture:** Plan component composition
+- ✅ **Dependencies:** Identify required dependencies
+
+### During Development
+- ✅ **TypeScript:** All types properly defined
+- ✅ **Styling:** Consistent with design system
+- ✅ **Accessibility:** Semantic HTML and ARIA
+- ✅ **Responsiveness:** Mobile-first design
+- ✅ **Performance:** Efficient implementation
+
+### Pre-Commit
+- ✅ **Testing:** All tests pass
+- ✅ **Linting:** No ESLint errors
+- ✅ **Type Checking:** No TypeScript errors
+- ✅ **Code Review:** Self-review completed
+- ✅ **Documentation:** Component is properly documented
+
+### Post-Development
+- ✅ **Integration:** Component works in application
+- ✅ **Cross-browser:** Tested in target browsers
+- ✅ **Performance:** No performance regressions
+- ✅ **Accessibility:** Screen reader testing completed
+
+## Maintenance Guidelines
+
+### Regular Updates
+- ✅ **Dependencies:** Keep dependencies updated
+- ✅ **Design System:** Update colors/typography as needed
+- ✅ **Documentation:** Keep rules and documentation current
+- ✅ **Testing:** Maintain test coverage
+
+### Code Reviews
+- ✅ **Consistency:** Check against established patterns
+- ✅ **Quality:** Verify code quality standards
+- ✅ **Performance:** Review for performance impact
+- ✅ **Accessibility:** Verify accessibility compliance
+
+### Refactoring
+- ✅ **Incremental:** Small, focused changes
+- ✅ **Testing:** Maintain test coverage during refactoring
+- ✅ **Documentation:** Update documentation as needed
+- ✅ **Communication:** Document breaking changes
+
+## Tools and Automation
+
+### Development Tools
+- ✅ **ESLint:** Code quality and consistency
+- ✅ **Prettier:** Code formatting
+- ✅ **TypeScript:** Type safety
+- ✅ **Jest:** Testing framework
+- ✅ **React Testing Library:** Component testing
+
+### Build Tools
+- ✅ **Next.js:** Framework and build system
+- ✅ **Tailwind CSS:** Styling framework
+- ✅ **PostCSS:** CSS processing
+- ✅ **TypeScript Compiler:** Type checking
+
+### Quality Gates
+- ✅ **Linting:** Automated linting in CI/CD
+- ✅ **Testing:** Automated test runs
+- ✅ **Type Checking:** TypeScript compilation checks
+- ✅ **Build Verification:** Successful builds required

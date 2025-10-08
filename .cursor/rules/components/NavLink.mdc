@@ -1,0 +1,82 @@
+# NavLink Component Rules
+
+## Overview
+Rules and patterns for the NavLink component (`src/components/atoms/NavLink.tsx`)
+
+## Purpose
+Individual navigation link with consistent styling and hover states
+
+## Rules
+
+### Core Requirements
+- ✅ **Required Props:** Both `href` and `label` are required (no defaults)
+- ✅ **TypeScript:** Use explicit prop types with required string properties
+- ✅ **Styling:** Consistent hover states with brand color transition
+- ✅ **Typography:** Fixed font size (`text-[16px]`) for consistency
+- ✅ **Accessibility:** Use semantic Link component from Next.js
+- ✅ **State Management:** Hover state transitions to brand color (`hover:text-[#8a0028]`)
+- ✅ **Color Scheme:** Default gray (`text-gray-800`) with brand color on hover
+
+## Code Template
+```typescript
+import Link from "next/link";
+
+type NavLinkProps = {
+  href: string;
+  label: string;
+};
+
+export function NavLink({ href, label }: NavLinkProps) {
+  return (
+    <Link
+      href={href}
+      className="text-gray-800 hover:text-[#8a0028] transition-colors text-[16px]"
+    >
+      {label}
+    </Link>
+  );
+}
+
+export default NavLink;
+```
+
+## Implementation Details
+
+### Props
+- `href` (required): Navigation destination
+- `label` (required): Display text for the link
+- Type: Both are `string`
+
+### Styling Classes
+- Base: `text-gray-800`
+- Hover: `hover:text-[#8a0028]`
+- Transition: `transition-colors`
+- Typography: `text-[16px]`
+
+### Color Scheme
+- Default text: Gray 800 (`text-gray-800`)
+- Hover text: Brand color (`text-[#8a0028]`)
+- Transition: Smooth color transition
+
+## Usage Examples
+
+### Basic Usage
+```typescript
+<NavLink href="/menu" label="Menu" />
+<NavLink href="/about" label="About" />
+```
+
+### In Navigation Components
+```typescript
+{NAV_ITEMS.map((item) => (
+  <NavLink key={item.label} href={item.href} label={item.label} />
+))}
+```
+
+## Quality Checklist
+- ✅ Both href and label props are required
+- ✅ Hover states work correctly
+- ✅ Typography is consistent (16px)
+- ✅ Color transitions are smooth
+- ✅ Links navigate properly
+- ✅ Component is properly exported

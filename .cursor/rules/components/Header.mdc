@@ -1,0 +1,129 @@
+# Header Component Rules
+
+## Overview
+Rules and patterns for the Header component (`src/components/organisms/Header.tsx`)
+
+## Purpose
+Main site header with logo and navigation, including brand accent elements
+
+## Rules
+
+### Core Requirements
+- ✅ **Layout Structure:** Use consistent container pattern (`max-w-7xl mx-auto px-4 py-4`)
+- ✅ **Component Composition:** Compose using Logo and NavBar molecules
+- ✅ **Branding Elements:** Include brand color accent bar (`h-2 bg-[#8a0028]`)
+- ✅ **Border Design:** Top border using brand color (`border-b border-[#8a0028]`)
+- ✅ **Flex Layout:** `flex items-center justify-between` for logo and nav positioning
+- ✅ **Responsive Spacing:** Consistent padding and margins
+- ✅ **Semantic HTML:** Use proper `<header>` element
+
+## Code Template
+```typescript
+import Logo from "@/components/atoms/Logo";
+import NavBar from "@/components/molecules/NavBar";
+
+export function Header() {
+  return (
+    <header className="w-full border-b border-[#8a0028]">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <Logo />
+        <NavBar />
+      </div>
+      <div className="h-2 bg-[#8a0028]"></div>
+    </header>
+  );
+}
+
+export default Header;
+```
+
+## Implementation Details
+
+### Component Composition
+- Logo: Brand logo with navigation capability
+- NavBar: Navigation menu with multiple links
+- No additional props required
+
+### Styling Classes
+- Header: `w-full border-b border-[#8a0028]`
+- Container: `max-w-7xl mx-auto px-4 py-4 flex items-center justify-between`
+- Accent bar: `h-2 bg-[#8a0028]`
+
+### Layout Structure
+- Full width header with brand color border
+- Constrained content container with centered max-width
+- Logo on left, navigation on right
+- Brand color accent bar at bottom
+
+## Layout Specifications
+
+### Container System
+- Max width: `max-w-7xl` (1280px)
+- Centering: `mx-auto`
+- Horizontal padding: `px-4` (16px)
+- Vertical padding: `py-4` (16px)
+
+### Flexbox Layout
+- Direction: Row (default)
+- Alignment: `items-center` (vertical center)
+- Justification: `justify-between` (space between logo and nav)
+
+### Brand Elements
+- Top border: Brand color (`border-[#8a0028]`)
+- Accent bar: 8px height, brand color background
+- Full width coverage
+
+## Visual Hierarchy
+
+### Branding
+- Logo positioned prominently on the left
+- Navigation accessible on the right
+- Brand color used consistently throughout
+
+### Spacing
+- Consistent 16px padding on all sides
+- 32px vertical spacing for accent bar
+- Proper spacing between logo and navigation
+
+## Usage Examples
+
+### In Layout Component
+```typescript
+import Header from "@/components/organisms/Header";
+
+export default function Layout({ children }) {
+  return (
+    <div>
+      <Header />
+      <main>{children}</main>
+    </div>
+  );
+}
+```
+
+### With Custom Logo
+```typescript
+// Logo component handles its own props
+<Header /> // No props needed - Logo uses default href="/"
+```
+
+## Responsive Behavior
+
+### Desktop
+- Logo and navigation side by side
+- Full navigation menu visible
+- Consistent spacing maintained
+
+### Mobile
+- Layout adapts naturally with flexbox
+- Navigation may wrap if needed
+- Logo remains prominent
+
+## Quality Checklist
+- ✅ Proper semantic header element
+- ✅ Brand color consistency throughout
+- ✅ Responsive container system
+- ✅ Logo and navigation properly positioned
+- ✅ Accent bar maintains brand identity
+- ✅ No props required (self-contained)
+- ✅ Component composition follows atomic design

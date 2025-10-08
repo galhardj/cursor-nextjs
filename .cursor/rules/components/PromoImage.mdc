@@ -1,0 +1,24 @@
+# PromoImage Component Rules
+
+## Overview
+Rules for `src/components/atoms/PromoImage.tsx`
+
+## Purpose
+Atom that renders a responsive image inside an aspect-ratio container.
+
+## Rules
+- ✅ Props: `src` (required), `alt` (required), `aspectRatio?` (default `"16/13"`), `className?`.
+- ✅ Layout: Wrapper `relative w-full rounded overflow-hidden` with native `style={{ aspectRatio }}`.
+- ✅ Image: Use Next.js `<Image fill className="object-cover" priority />`.
+- ✅ No dynamic Tailwind for aspect ratio (use CSS `aspect-ratio`).
+- ✅ Export both named and default.
+
+## Template
+```tsx
+<PromoImage src="/image.jpg" alt="Description" aspectRatio="16/9" />
+```
+
+## QA Checklist
+- Image visible with correct alt text.
+- Container respects provided `aspectRatio`.
+- No CLS: image fills container without layout shift.

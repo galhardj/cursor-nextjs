@@ -1,0 +1,99 @@
+# NavBar Component Rules
+
+## Overview
+Rules and patterns for the NavBar component (`src/components/molecules/NavBar.tsx`)
+
+## Purpose
+Navigation container that renders multiple NavLink components in a horizontal layout
+
+## Rules
+
+### Core Requirements
+- ✅ **Data Source:** Always import navigation data from `@/constants/navigation`
+- ✅ **Mapping Pattern:** Use `NAV_ITEMS.map()` with proper key prop
+- ✅ **Layout:** Use flexbox with gap (`gap-8`) for consistent spacing
+- ✅ **Component Composition:** Compose using NavLink atoms
+- ✅ **No Props:** This component should not accept props - data comes from constants
+- ✅ **Key Management:** Use `item.label` as key for React rendering
+
+## Code Template
+```typescript
+import { NAV_ITEMS } from "@/constants/navigation";
+import NavLink from "@/components/atoms/NavLink";
+
+export function NavBar() {
+  return (
+    <nav className="flex items-center gap-8">
+      {NAV_ITEMS.map((item) => (
+        <NavLink key={item.label} href={item.href} label={item.label} />
+      ))}
+    </nav>
+  );
+}
+
+export default NavBar;
+```
+
+## Implementation Details
+
+### Data Dependencies
+- Import: `NAV_ITEMS` from `@/constants/navigation`
+- Structure: Array of `{ label: string, href: string }` objects
+
+### Styling Classes
+- Container: `flex items-center gap-8`
+- Semantic: `<nav>` element for accessibility
+
+### Component Composition
+- Uses NavLink atomic components
+- Maps over NAV_ITEMS array
+- Passes through href and label props
+
+## Layout Specifications
+
+### Spacing
+- Gap between items: `gap-8` (32px)
+- Alignment: `items-center` (vertical centering)
+
+### Responsive Behavior
+- Horizontal flex layout
+- Items wrap naturally if needed
+- Consistent spacing maintained
+
+## Usage Examples
+
+### In Header Component
+```typescript
+import NavBar from "@/components/molecules/NavBar";
+
+export function Header() {
+  return (
+    <header>
+      <div className="flex items-center justify-between">
+        <Logo />
+        <NavBar />
+      </div>
+    </header>
+  );
+}
+```
+
+## Data Structure Requirements
+
+### NAV_ITEMS Format
+```typescript
+export const NAV_ITEMS: NavItem[] = [
+  { label: "Menu", href: "/menu" },
+  { label: "Find A Pret", href: "/locations" },
+  { label: "About", href: "/about" },
+  // ... more items
+];
+```
+
+## Quality Checklist
+- ✅ No props accepted (data from constants)
+- ✅ Proper key prop usage in mapping
+- ✅ Consistent gap spacing
+- ✅ Semantic nav element
+- ✅ Proper component composition
+- ✅ Data sourced from constants file

@@ -1,0 +1,37 @@
+# ButtonLink Component Rules
+
+## Overview
+Rules for `src/components/atoms/ButtonLink.tsx`
+
+## Purpose
+Atom for a link styled as a button with brand-consistent variants.
+
+## Rules
+- ✅ Props: `href` (required), `children` (required), `variant?` ("primary" | "outline"), `className?`.
+- ✅ Styling: Base `inline-block px-6 py-3 rounded transition-colors`.
+- ✅ Variants:
+  - primary: `bg-[#8a0028] text-white hover:opacity-90`
+  - outline: `border border-gray-900 hover:bg-gray-900 hover:text-white`
+- ✅ Export both named and default.
+- ✅ Accessibility: Uses Next.js `Link` with text label.
+
+## Template
+```typescript
+export type ButtonLinkProps = {
+  href: string;
+  children: React.ReactNode;
+  variant?: "primary" | "outline";
+  className?: string;
+};
+```
+
+## Usage
+```tsx
+<ButtonLink href="/catering">Find out more</ButtonLink>
+<ButtonLink href="/order" variant="primary">Order now</ButtonLink>
+```
+
+## QA Checklist
+- Correct variant classes applied.
+- Hover/focus visible.
+- Accepts custom `className` for spacing when composed.

@@ -1,0 +1,59 @@
+# Logo Component Rules
+
+## Overview
+Rules and patterns for the Logo component (`src/components/atoms/Logo.tsx`)
+
+## Purpose
+Brand logo with optional navigation capability
+
+## Rules
+
+### Core Requirements
+- ✅ **Default Props:** Always provide sensible defaults (`href = "/"`)
+- ✅ **TypeScript:** Use explicit prop types (`LogoProps`) with optional properties
+- ✅ **Styling:** Use consistent brand colors (`text-[#8a0028]`) and typography (`text-xl font-semibold tracking-wide`)
+- ✅ **Accessibility:** Logo should be wrapped in a Link for navigation
+- ✅ **Export Pattern:** Export both named export and default export
+- ✅ **Icon/Symbol:** Use star symbol (★) as brand identifier
+- ✅ **Layout:** Use flexbox with gap for internal spacing
+
+## Code Template
+```typescript
+import Link from "next/link";
+
+type LogoProps = { href?: string };
+
+export function Logo({ href = "/" }: LogoProps) {
+  return (
+    <Link href={href} className="flex items-center gap-2 text-[#8a0028]">
+      <span className="text-xl font-semibold tracking-wide">★ PRET ★</span>
+    </Link>
+  );
+}
+
+export default Logo;
+```
+
+## Implementation Details
+
+### Props
+- `href` (optional): Navigation destination, defaults to "/"
+- Type: `string | undefined`
+
+### Styling Classes
+- Container: `flex items-center gap-2 text-[#8a0028]`
+- Text: `text-xl font-semibold tracking-wide`
+
+### Brand Elements
+- Primary brand color: `#8a0028`
+- Brand symbol: ★ (star)
+- Brand name: "PRET"
+- Typography: Extra large, semi-bold, wide tracking
+
+## Quality Checklist
+- ✅ Logo text is visible and properly styled
+- ✅ Default navigation works (href="/")
+- ✅ Custom navigation works (when href prop provided)
+- ✅ Brand colors are consistent
+- ✅ Typography follows design system
+- ✅ Component is properly exported

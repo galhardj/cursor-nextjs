@@ -1,0 +1,132 @@
+# SocialLinks Component Rules
+
+## Overview
+Rules and patterns for the SocialLinks component (`src/components/molecules/SocialLinks.tsx`)
+
+## Purpose
+Social media links with icon-based circular button design
+
+## Rules
+
+### Core Requirements
+- ✅ **Data Source:** Import `SOCIAL_LINKS` from `@/constants/footer`
+- ✅ **Icon Design:** Circular buttons with border (`w-8 h-8 rounded-full border border-[#8a0028]`)
+- ✅ **Accessibility:** Always include `aria-label` for screen readers
+- ✅ **Hover States:** Background color change on hover (`hover:bg-[#8a0028] hover:text-white`)
+- ✅ **Layout:** Flexbox with gap (`flex items-center gap-4`)
+- ✅ **Icon Display:** Use text-based icons (`s.icon`) with proper font weight
+- ✅ **External Links:** Social links should point to external URLs
+
+## Code Template
+```typescript
+import Link from "next/link";
+import { SOCIAL_LINKS } from "@/constants/footer";
+
+export function SocialLinks() {
+  return (
+    <div className="flex items-center gap-4">
+      {SOCIAL_LINKS.map((s) => (
+        <Link
+          key={s.label}
+          aria-label={s.label}
+          href={s.href}
+          className="w-8 h-8 rounded-full border border-[#8a0028] text-[#8a0028] flex items-center justify-center hover:bg-[#8a0028] hover:text-white"
+        >
+          <span className="text-sm font-semibold">{s.icon}</span>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+export default SocialLinks;
+```
+
+## Implementation Details
+
+### Data Dependencies
+- Import: `SOCIAL_LINKS` from `@/constants/footer`
+- Structure: Array of `{ label: string, href: string, icon: string }` objects
+
+### Styling Classes
+- Container: `flex items-center gap-4`
+- Button: `w-8 h-8 rounded-full border border-[#8a0028] text-[#8a0028] flex items-center justify-center`
+- Hover: `hover:bg-[#8a0028] hover:text-white`
+- Icon: `text-sm font-semibold`
+
+### Accessibility
+- `aria-label` attribute for screen readers
+- Semantic Link elements
+- Proper focus states
+
+## Design Specifications
+
+### Button Design
+- Size: 32px × 32px (`w-8 h-8`)
+- Shape: Perfect circle (`rounded-full`)
+- Border: Brand color border (`border border-[#8a0028]`)
+- Icon: Small, semi-bold text
+
+### Color States
+- Default: Brand color text, transparent background
+- Hover: White text, brand color background
+- Border: Always brand color
+
+### Layout
+- Horizontal flex layout
+- 16px gap between buttons
+- Center-aligned items
+
+## Data Structure Requirements
+
+### SOCIAL_LINKS Format
+```typescript
+export const SOCIAL_LINKS = [
+  { label: "Facebook", href: "https://facebook.com", icon: "f" },
+  { label: "TikTok", href: "https://tiktok.com", icon: "x" },
+  { label: "Instagram", href: "https://instagram.com", icon: "i" },
+];
+```
+
+### Icon Guidelines
+- Use single character icons for simplicity
+- Icons should be recognizable abbreviations
+- Maintain consistency in icon style
+
+## Usage Examples
+
+### In Footer Component
+```typescript
+import SocialLinks from "@/components/molecules/SocialLinks";
+
+export function Footer() {
+  return (
+    <footer>
+      <div className="flex justify-between">
+        <FooterLinks />
+        <div>
+          <SocialLinks />
+          {/* Other footer content */}
+        </div>
+      </div>
+    </footer>
+  );
+}
+```
+
+### Standalone Usage
+```typescript
+<div className="text-center">
+  <p className="mb-4">Follow us on social media</p>
+  <SocialLinks />
+</div>
+```
+
+## Quality Checklist
+- ✅ Circular button design maintained
+- ✅ Proper accessibility with aria-labels
+- ✅ Hover states work correctly
+- ✅ External links open properly
+- ✅ Consistent spacing and alignment
+- ✅ Icons are readable and appropriate
+- ✅ Data sourced from constants

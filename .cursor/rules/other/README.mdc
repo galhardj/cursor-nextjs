@@ -1,0 +1,55 @@
+# Component Development Overview
+
+## Component Rule Files
+
+### Atomic Components
+- 📄 **[Logo.mdc](../components/Logo.mdc)** - Brand logo component rules
+- 📄 **[NavLink.mdc](../components/NavLink.mdc)** - Navigation link component rules
+- 📄 **[ButtonLink.mdc](../components/ButtonLink.mdc)** - Button-styled link atom rules
+- 📄 **[PromoImage.mdc](../components/PromoImage.mdc)** - Responsive image atom rules
+
+### Molecular Components  
+- 📄 **[NavBar.mdc](../components/NavBar.mdc)** - Navigation container component rules
+- 📄 **[FooterLinks.mdc](../components/FooterLinks.mdc)** - Footer links component rules
+- 📄 **[SocialLinks.mdc](../components/SocialLinks.mdc)** - Social media links component rules
+- 📄 **[CateringPromoCopy.mdc](../components/CateringPromoCopy.mdc)** - Promo copy block rules
+
+### Organism Components
+- 📄 **[Header.mdc](../components/Header.mdc)** - Site header component rules
+- 📄 **[Footer.mdc](../components/Footer.mdc)** - Site footer component rules
+- 📄 **[CateringPromo.mdc](../components/CateringPromo.mdc)** - Promo section component rules
+
+### Constants & Data
+- 📄 **[Constants.mdc](./Constants.mdc)** - Unified constants rules (navigation, footer, catering)
+
+### Testing & Quality
+- 📄 **[Testing-Patterns.mdc](./Testing-Patterns.mdc)** - Component testing rules and patterns
+- 📄 **[Design-System.mdc](./Design-System.mdc)** - Design system, file organization, and QA guidelines
+
+## Component Hierarchy
+
+```
+Organisms (Header, Footer, CateringPromo)
+├── Molecules (NavBar, FooterLinks, SocialLinks, CateringPromoCopy)
+    ├── Atoms (Logo, NavLink, ButtonLink, PromoImage)
+    └── Constants (Navigation, Footer, Catering)
+```
+
+## Key Principles
+
+- ✅ **Atomic Design:** Components follow atomic design principles
+- ✅ **Consistency:** All components follow established patterns
+- ✅ **TypeScript:** Strong typing throughout
+- ✅ **Accessibility:** Semantic HTML and ARIA compliance
+- ✅ **Testing:** Comprehensive test coverage
+- ✅ **Documentation:** Each component has detailed rules
+
+## Getting Started
+
+1. Choose the appropriate component type (atom/molecule/organism)
+2. Reference the specific component rule file
+3. Follow the code templates and guidelines
+4. Ensure compliance with the design system
+5. Write tests following the testing patterns
+
+For detailed information about any component, please refer to the individual rule files listed above.

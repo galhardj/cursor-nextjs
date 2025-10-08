@@ -1,0 +1,180 @@
+# Constants Rules
+
+## Overview
+Comprehensive rules and patterns for all constants in the Next.js project, including navigation, footer, catering, and general data management
+
+## Purpose
+Centralized data management with type safety, consistent patterns, and maintainable structure
+
+## General Constants Rules
+
+### Core Requirements
+- ✅ **Type Definitions:** Always define explicit TypeScript types for all data structures
+- ✅ **Export Pattern:** Export both types and data arrays for reusability
+- ✅ **Naming Convention:** Use descriptive, consistent naming (UPPER_SNAKE_CASE for arrays/objects when appropriate; camelCase for nested keys)
+- ✅ **Data Structure:** Consistent object structures throughout the application
+- ✅ **URL Patterns:** Follow established URL pattern guidelines
+- ✅ **Organization:** Group related data logically with clear hierarchies
+
+### TypeScript Standards
+```typescript
+// Always define explicit types
+export type DataItem = {
+  label: string;
+  href: string;
+  // Add other properties as needed
+};
+
+// Export constants with descriptive names
+export const DATA_ITEMS: DataItem[] = [
+  // Array of data objects
+];
+```
+
+### File Organization
+- Place constants in dedicated files under `src/constants/`
+- Use descriptive file names (`navigation.ts`, `footer.ts`, `catering.ts`, etc.)
+- Keep related constants in the same file
+- Separate complex data structures into logical groups
+
+## Navigation Constants
+
+### File Location
+`src/constants/navigation.ts`
+
+### Purpose
+Centralized navigation data management with type safety
+
+### Code Template
+```typescript
+export type NavItem = {
+  label: string;
+  href: string;
+};
+
+export const NAV_ITEMS: NavItem[] = [
+  { label: "Menu", href: "/menu" },
+  { label: "Find A Pret", href: "/locations" },
+  { label: "About", href: "/about" },
+  { label: "Catering", href: "/catering" },
+  { label: "The Pret App", href: "/app" },
+  { label: "Order Now", href: "/order" },
+  { label: "Club Pret", href: "/club" },
+  { label: "Careers", href: "/careers" },
+  { label: "Franchising", href: "/franchising" },
+  { label: "Sign in", href: "/signin" },
+];
+```
+
+### Navigation Guidelines
+
+#### Content Standards
+- Use title case for multi-word labels
+- Keep labels concise but descriptive
+- Match common user expectations
+- Use consistent terminology
+
+#### Navigation Hierarchy
+1. **Primary Actions**: Menu, Locations, About
+2. **Services**: Catering, App, Order
+3. **Engagement**: Club Pret, Careers
+4. **Business**: Franchising
+5. **User Actions**: Sign in
+
+#### URL Pattern Rules
+- Use lowercase letters only
+- Separate words with hyphens (`-`)
+- Keep URLs concise and descriptive
+- Avoid special characters and spaces
+
+**Examples:**
+- ✅ `/menu` (simple, single word)
+- ✅ `/find-a-pret` (hyphenated, descriptive)
+- ✅ `/sign-in` (hyphenated, clear action)
+- ❌ `/FindAPret` (camelCase)
+- ❌ `/find a pret` (spaces)
+- ❌ `/find_a_pret` (underscores)
+
+## Footer Constants
+
+### File Location
+`src/constants/footer.ts`
+
+### Purpose
+Centralized footer data management including sections, links, and social media
+
+### Code Template
+```typescript
+export type FooterSection = {
+  title: string;
+  links: { label: string; href: string }[];
+};
+
+export const FOOTER_SECTIONS: FooterSection[] = [
+  // ... sections as defined in the codebase
+];
+
+export const SOCIAL_LINKS = [
+  { label: "Facebook", href: "https://facebook.com", icon: "f" },
+  { label: "TikTok", href: "https://tiktok.com", icon: "x" },
+  { label: "Instagram", href: "https://instagram.com", icon: "i" },
+];
+```
+
+### Footer Guidelines
+- Group related links
+- Use clear titles
+- Order links by importance
+- Use official platform names and full URLs for social links
+
+## Catering Constants
+
+### File Location
+`src/constants/catering.ts`
+
+### Purpose
+Provide centralized, reusable content for the Catering Promo section (heading, body, CTA, image metadata).
+
+### Code Template
+```typescript
+export const CATERING_PROMO = {
+  heading: "Handmade. Hand delivered.",
+  lead: "Freshly made breakfast, lunch and sweet platters – from our kitchen to yours.",
+  body: "In-laws popping by? Busy teams need a boost? Whenever you need to fuel a crowd for breakfast, lunch or snacks, order by 10 am for same-day delivery.",
+  cta: { label: "Find out more", href: "/catering" },
+  image: { src: "/window.svg", alt: "Catering platter with sandwiches and snacks", aspectRatio: "16/13" },
+} as const;
+```
+
+### Usage
+- `CateringPromoCopy` reads heading, paragraphs, and CTA
+- `PromoImage` reads `image` fields for `src`, `alt`, and `aspectRatio`
+- No hard-coded strings in components using these constants
+
+## URL Pattern Guidelines
+
+### General Rules
+- **Internal Links**: Use lowercase with hyphens, follow established site structure
+- **External Links**: Always use full URLs with protocol, use official platform URLs
+- **Consistency**: Keep URLs concise and descriptive, use consistent naming patterns
+- **Validation**: Ensure links are current and working
+
+## Maintenance Guidelines
+
+### Adding New Constants
+1. **Define Types**: Create explicit TypeScript types
+2. **Follow Patterns**: Use consistent naming and structure
+3. **Group Logically**: Place related constants together
+4. **Export Properly**: Export both types and data arrays/objects
+5. **Document**: Include clear comments and examples
+
+### Modifying Existing Constants
+- Maintain backward compatibility when possible
+- Update tests and consumers
+- Keep documentation current
+
+## Quality Assurance Checklist
+- Types present and exported where needed
+- Data structures are consistent
+- Copy matches design/product source of truth
+- Consumers import from `@/constants/...` and avoid duplication

@@ -1,0 +1,32 @@
+# CateringPromoCopy Component Rules
+
+## Overview
+
+Rules for `src/components/molecules/CateringPromoCopy.tsx`
+
+## Purpose
+
+Molecule that renders the promo heading, paragraphs, and CTA using constants and atoms.
+
+## Rules
+
+- ✅ Data Source: Read from `CATERING_PROMO` in `@/constants/catering`.
+- ✅ Composition: Use `ButtonLink` atom for CTA.
+- ✅ Typography: `h2` uses `text-3xl md:text-4xl font-semibold`, paragraphs `text-gray-700` with spacing `mb-4` / `mb-6`.
+- ✅ No props (content centralized in constants).
+- ✅ Export both named and default.
+
+## Template
+
+```tsx
+<h2>{CATERING_PROMO.heading}</h2>
+<p>{CATERING_PROMO.lead}</p>
+<p>{CATERING_PROMO.body}</p>
+<ButtonLink href={CATERING_PROMO.cta.href}>{CATERING_PROMO.cta.label}</ButtonLink>
+```
+
+## QA Checklist
+
+- Text matches constants exactly.
+- CTA href/label matches constants.
+- Heading has role heading level 2.

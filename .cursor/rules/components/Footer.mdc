@@ -1,0 +1,164 @@
+# Footer Component Rules
+
+## Overview
+Rules and patterns for the Footer component (`src/components/organisms/Footer.tsx`)
+
+## Purpose
+Site footer with links, social media, and additional content like country selector
+
+## Rules
+
+### Core Requirements
+- ✅ **Layout Structure:** Use consistent container pattern matching Header
+- ✅ **Component Composition:** Compose using FooterLinks and SocialLinks molecules
+- ✅ **Responsive Design:** Use `flex-wrap` for mobile adaptability
+- ✅ **Additional Elements:** Include country selector and copyright notice
+- ✅ **Spacing:** Consistent gap (`gap-8`) and margin (`mt-12`)
+- ✅ **Border Design:** Top border using gray (`border-t border-gray-200`)
+- ✅ **Copyright Notice:** Always include current year and placeholder disclaimer
+- ✅ **Semantic HTML:** Use proper `<footer>` element
+
+## Code Template
+```typescript
+import FooterLinks from "@/components/molecules/FooterLinks";
+import SocialLinks from "@/components/molecules/SocialLinks";
+
+export function Footer() {
+  return (
+    <footer className="w-full border-t border-gray-200 mt-12">
+      <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col gap-8">
+        <div className="flex items-start justify-between gap-8 flex-wrap">
+          <FooterLinks />
+          <div className="min-w-[260px] space-y-4">
+            <SocialLinks />
+            <label className="block text-gray-700">Switch Country</label>
+            <select className="w-full border rounded p-2">
+              <option>United States</option>
+            </select>
+          </div>
+        </div>
+        <p className="text-xs text-gray-500">
+          © Pret A Manger 2025. Addresses and registrations are placeholders for
+          demo purposes.
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+export default Footer;
+```
+
+## Implementation Details
+
+### Component Composition
+- FooterLinks: Grid of footer sections with links
+- SocialLinks: Social media icon buttons
+- Additional elements: Country selector, copyright notice
+
+### Styling Classes
+- Footer: `w-full border-t border-gray-200 mt-12`
+- Container: `max-w-7xl mx-auto px-4 py-10 flex flex-col gap-8`
+- Content: `flex items-start justify-between gap-8 flex-wrap`
+- Sidebar: `min-w-[260px] space-y-4`
+- Copyright: `text-xs text-gray-500`
+
+### Layout Structure
+- Full width footer with subtle top border
+- Constrained content container
+- Two-column layout with responsive wrapping
+- Copyright notice at bottom
+
+## Layout Specifications
+
+### Container System
+- Max width: `max-w-7xl` (1280px) - matches Header
+- Centering: `mx-auto`
+- Horizontal padding: `px-4` (16px)
+- Vertical padding: `py-10` (40px) - more than Header
+
+### Flexbox Layout
+- Direction: Column for main container
+- Gap: `gap-8` (32px) between sections
+- Content: Row with wrapping (`flex-wrap`)
+- Justification: `justify-between` for main content
+
+### Responsive Design
+- Wrapping: `flex-wrap` for mobile adaptation
+- Minimum width: `min-w-[260px]` for sidebar
+- Gap: `gap-8` for consistent spacing
+
+## Content Sections
+
+### Footer Links Section
+- Uses FooterLinks component
+- Responsive grid layout
+- Takes available space
+
+### Sidebar Section
+- Social media links
+- Country selector
+- Fixed minimum width
+- Vertical spacing between elements
+
+### Copyright Section
+- Small text, muted color
+- Current year (update annually)
+- Placeholder disclaimer text
+
+## Additional Elements
+
+### Country Selector
+- Label: "Switch Country"
+- Select element with default option
+- Full width within sidebar
+- Standard form styling
+
+### Social Links
+- Integrated SocialLinks component
+- Positioned in sidebar area
+- Maintains consistent spacing
+
+## Usage Examples
+
+### In Layout Component
+```typescript
+import Footer from "@/components/organisms/Footer";
+
+export default function Layout({ children }) {
+  return (
+    <div>
+      <main>{children}</main>
+      <Footer />
+    </div>
+  );
+}
+```
+
+### Standalone Usage
+```typescript
+// Footer is self-contained, no props needed
+<Footer />
+```
+
+## Responsive Behavior
+
+### Desktop
+- Two-column layout: FooterLinks and sidebar
+- Sidebar maintains minimum width
+- Consistent spacing throughout
+
+### Mobile
+- Layout wraps naturally
+- FooterLinks may stack above sidebar
+- Maintains readability and usability
+
+## Quality Checklist
+- ✅ Proper semantic footer element
+- ✅ Consistent container system with Header
+- ✅ Responsive layout with proper wrapping
+- ✅ All required content sections included
+- ✅ Copyright notice with current year
+- ✅ Proper component composition
+- ✅ Accessible form elements
+- ✅ Consistent spacing and typography

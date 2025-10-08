@@ -1,0 +1,129 @@
+# FooterLinks Component Rules
+
+## Overview
+Rules and patterns for the FooterLinks component (`src/components/molecules/FooterLinks.tsx`)
+
+## Purpose
+Renders footer sections with links in a responsive grid layout
+
+## Rules
+
+### Core Requirements
+- ✅ **Data Source:** Import from `@/constants/footer` using `FOOTER_SECTIONS`
+- ✅ **Responsive Grid:** Use `grid-cols-2 md:grid-cols-4` for mobile-first design
+- ✅ **Spacing:** Consistent gap (`gap-8`) and section spacing (`space-y-2`)
+- ✅ **Typography:** Section titles use `text-lg font-semibold mb-3`
+- ✅ **Link Styling:** Gray text with brand color hover (`text-gray-700 hover:text-[#8a0028]`)
+- ✅ **Nested Mapping:** Handle both sections and links with proper keys
+- ✅ **Semantic HTML:** Use proper heading (`h3`) and list (`ul`, `li`) structure
+
+## Code Template
+```typescript
+import Link from "next/link";
+import { FOOTER_SECTIONS } from "@/constants/footer";
+
+export function FooterLinks() {
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full">
+      {FOOTER_SECTIONS.map((section) => (
+        <div key={section.title}>
+          <h3 className="text-lg font-semibold mb-3">{section.title}</h3>
+          <ul className="space-y-2">
+            {section.links.map((l) => (
+              <li key={l.label}>
+                <Link href={l.href} className="text-gray-700 hover:text-[#8a0028]">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default FooterLinks;
+```
+
+## Implementation Details
+
+### Data Dependencies
+- Import: `FOOTER_SECTIONS` from `@/constants/footer`
+- Structure: Array of sections with title and links array
+
+### Styling Classes
+- Grid container: `grid grid-cols-2 md:grid-cols-4 gap-8 w-full`
+- Section title: `text-lg font-semibold mb-3`
+- Link list: `space-y-2`
+- Link styling: `text-gray-700 hover:text-[#8a0028]`
+
+### Responsive Design
+- Mobile: 2 columns (`grid-cols-2`)
+- Desktop: 4 columns (`md:grid-cols-4`)
+- Consistent gap spacing across breakpoints
+
+## Layout Specifications
+
+### Grid System
+- Mobile: 2 columns
+- Medium screens and up: 4 columns
+- Gap: `gap-8` (32px) between sections
+
+### Typography
+- Section headers: Large, semi-bold, margin bottom
+- Links: Medium gray with brand color hover
+
+### Spacing
+- Section gap: `gap-8`
+- Link spacing: `space-y-2`
+- Title margin: `mb-3`
+
+## Data Structure Requirements
+
+### FOOTER_SECTIONS Format
+```typescript
+export type FooterSection = {
+  title: string;
+  links: { label: string; href: string }[];
+};
+
+export const FOOTER_SECTIONS: FooterSection[] = [
+  {
+    title: "About Us",
+    links: [
+      { label: "Allergen Guide", href: "/allergen-guide" },
+      { label: "FAQs", href: "/faqs" },
+      // ... more links
+    ],
+  },
+  // ... more sections
+];
+```
+
+## Usage Examples
+
+### In Footer Component
+```typescript
+import FooterLinks from "@/components/molecules/FooterLinks";
+
+export function Footer() {
+  return (
+    <footer>
+      <div className="flex justify-between">
+        <FooterLinks />
+        <SocialLinks />
+      </div>
+    </footer>
+  );
+}
+```
+
+## Quality Checklist
+- ✅ Responsive grid layout works
+- ✅ Proper semantic HTML structure
+- ✅ Consistent spacing and typography
+- ✅ Hover states on links
+- ✅ Nested mapping with proper keys
+- ✅ Data sourced from constants
+- ✅ Accessibility with proper headings and lists

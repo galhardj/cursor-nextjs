@@ -1,0 +1,270 @@
+# Testing Patterns Rules
+
+## Overview
+
+Rules and patterns for component testing using Jest and React Testing Library
+
+## Purpose
+
+Standardized testing approach for all components following best practices
+
+## Rules
+
+### General Testing Principles
+
+- ✅ **Test Location:** Place tests in `__tests__/` directories within component folders
+- ✅ **Naming Convention:** Use `.spec.tsx` extension for test files
+- ✅ **Import Pattern:** Import from `@testing-library/react` for render and screen
+- ✅ **Test Structure:** Use `describe` blocks for component grouping
+- ✅ **Test Names:** Use descriptive test names that explain the behavior being tested
+
+## Code Template
+
+```typescript
+import { render, screen } from '@testing-library/react';
+import ComponentName from '@/components/path/ComponentName';
+
+describe('ComponentName', () => {
+  it('renders [specific element]', () => {
+    render(<ComponentName />);
+    expect(screen.getByText(/text/i)).toBeInTheDocument();
+  });
+
+  it('renders [specific functionality]', () => {
+    render(<ComponentName />);
+    expect(screen.getByRole('link', { name: /text/i })).toBeInTheDocument();
+  });
+});
+```
+
+## Component-Specific Testing Patterns
+
+### Header Component Testing
+
+```typescript
+import { render, screen } from '@testing-library/react';
+import Header from '@/components/organisms/Header';
+
+describe('Header', () => {
+  it('renders logo text', () => {
+    render(<Header />);
+    expect(screen.getByText(/pret/i)).toBeInTheDocument();
+  });
+
+  it('renders navigation items', () => {
+    render(<Header />);
+    expect(screen.getByRole('link', { name: /menu/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /sign in/i })).toBeInTheDocument();
+  });
+});
+```
+
+### Footer Component Testing
+
+```typescript
+import { render, screen } from '@testing-library/react';
+import Footer from '@/components/organisms/Footer';
+
+describe('Footer', () => {
+  it('renders footer sections', () => {
+    render(<Footer />);
+    expect(screen.getByText(/About Us/i)).toBeInTheDocument();
+    expect(screen.getByText(/Corporate/i)).toBeInTheDocument();
+  });
+
+  it('renders social links', () => {
+    render(<Footer />);
+    expect(screen.getByLabelText(/Facebook/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Instagram/i)).toBeInTheDocument();
+  });
+});
+```
+
+## Testing Guidelines
+
+### Test File Organization
+
+```
+src/components/
+├── organisms/
+│   ├── __tests__/
+│   │   ├── Header.spec.tsx
+│   │   └── Footer.spec.tsx
+│   ├── Header.tsx
+│   └── Footer.tsx
+```
+
+### Import Standards
+
+- Always import from `@testing-library/react`
+- Use absolute imports with `@/` alias
+- Import component using default export
+
+### Test Structure
+
+- Use `describe` blocks for component grouping
+- Use `it` blocks for individual test cases
+- Use descriptive test names that explain behavior
+
+## Testing Strategies
+
+### Text Content Testing
+
+```typescript
+// Case-insensitive text matching
+expect(screen.getByText(/pret/i)).toBeInTheDocument();
+
+// Exact text matching
+expect(screen.getByText('About Us')).toBeInTheDocument();
+```
+
+### Role-Based Testing
+
+```typescript
+// Testing links
+expect(screen.getByRole('link', { name: /menu/i })).toBeInTheDocument();
+
+// Testing buttons
+expect(screen.getByRole('button', { name: /submit/i })).toBeInTheDocument();
+```
+
+### Accessibility Testing
+
+```typescript
+// Testing aria-labels
+expect(screen.getByLabelText(/Facebook/i)).toBeInTheDocument();
+
+// Testing headings
+expect(screen.getByRole('heading', { name: /About Us/i })).toBeInTheDocument();
+```
+
+## Component-Specific Test Cases
+
+### Atomic Components
+
+#### Logo Component
+
+- ✅ Renders brand text
+- ✅ Renders with default href
+- ✅ Renders with custom href
+- ✅ Has proper link structure
+
+#### NavLink Component
+
+- ✅ Renders link text
+- ✅ Renders with correct href
+- ✅ Has proper link structure
+- ✅ Applies correct styling classes
+
+### Molecular Components
+
+#### NavBar Component
+
+- ✅ Renders all navigation items
+- ✅ Uses correct data source
+- ✅ Has proper key props
+- ✅ Maintains consistent layout
+
+#### FooterLinks Component
+
+- ✅ Renders all footer sections
+- ✅ Renders section titles
+- ✅ Renders all section links
+- ✅ Uses responsive grid layout
+
+#### SocialLinks Component
+
+- ✅ Renders all social links
+- ✅ Has proper aria-labels
+- ✅ Uses correct external URLs
+- ✅ Maintains consistent styling
+
+### Organism Components
+
+#### Header Component
+
+- ✅ Renders logo
+- ✅ Renders navigation
+- ✅ Has proper semantic structure
+- ✅ Maintains brand styling
+
+#### Footer Component
+
+- ✅ Renders footer links
+- ✅ Renders social links
+- ✅ Renders country selector
+- ✅ Renders copyright notice
+- ✅ Has proper semantic structure
+
+## Testing Best Practices
+
+### Test Coverage
+
+- Test all public interfaces
+- Test key user interactions
+- Test accessibility features
+- Test responsive behavior (when applicable)
+
+### Test Data
+
+- Use realistic test data
+- Test with different prop combinations
+- Test edge cases and error states
+- Mock external dependencies when needed
+
+### Assertions
+
+- Use specific, meaningful assertions
+- Test behavior, not implementation
+- Use appropriate query methods
+- Include accessibility assertions
+
+### Performance
+
+- Keep tests focused and fast
+- Avoid testing implementation details
+- Use efficient query methods
+- Clean up after tests
+
+## Mock and Setup
+
+### Jest Setup
+
+```typescript
+// jest.setup.ts
+import '@testing-library/jest-dom';
+```
+
+### Component Testing Setup
+
+```typescript
+// For components with Next.js dependencies
+jest.mock('next/link', () => {
+  return ({ children, href }: { children: React.ReactNode; href: string }) => (
+    <a href={href}>{children}</a>
+  );
+});
+```
+
+## Quality Checklist
+
+### Test File Quality
+
+- ✅ Proper file location and naming
+- ✅ Correct imports and setup
+- ✅ Clear test structure and organization
+- ✅ Descriptive test names
+
+### Test Coverage
+
+- ✅ All major functionality tested
+- ✅ Accessibility features tested
+- ✅ Error states handled
+- ✅ Edge cases considered
+
+### Test Quality
+
+- ✅ Tests are independent and isolated
+- ✅ Tests are deterministic and reliable
+- ✅ Tests are maintainable and readable
+- ✅ Tests follow established patterns

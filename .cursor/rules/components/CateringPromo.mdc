@@ -1,0 +1,30 @@
+# CateringPromo Component Rules
+
+## Overview
+Rules for `src/components/organisms/CateringPromo.tsx`
+
+## Purpose
+Organism that composes promo image and copy into a two-column responsive section.
+
+## Rules
+- ✅ Layout: `max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center`.
+- ✅ Composition: Uses `PromoImage` atom and `CateringPromoCopy` molecule.
+- ✅ Data Source: Image src/alt/aspect from `CATERING_PROMO.image` in `@/constants/catering`.
+- ✅ Semantics: Wrap in `<section className="w-full">`.
+- ✅ No local strings; all copy in constants.
+
+## Template
+```tsx
+<PromoImage src={CATERING_PROMO.image.src} alt={CATERING_PROMO.image.alt} aspectRatio={CATERING_PROMO.image.aspectRatio} />
+<CateringPromoCopy />
+```
+
+## Responsive Behavior
+- 1 column on mobile, 2 columns from `md:`.
+- Gaps: `gap-8` mobile, `md:gap-12` desktop.
+
+## QA Checklist
+- Renders image with correct alt.
+- Heading and copy match constants.
+- CTA navigates to the expected href.
+- Layout stacks on mobile and splits on desktop.
