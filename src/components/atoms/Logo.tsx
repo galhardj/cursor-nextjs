@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styles from "./Logo.module.css";
-
-type LogoProps = { href?: string };
+import type { LogoProps } from "@/types/components";
 
 export function Logo({ href = "/" }: LogoProps) {
   return (
@@ -12,5 +11,3 @@ export function Logo({ href = "/" }: LogoProps) {
 }
 
 export default Logo;
-
-

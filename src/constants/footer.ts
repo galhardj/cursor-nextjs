@@ -1,7 +1,4 @@
-export type FooterSection = {
-  title: string;
-  links: { label: string; href: string }[];
-};
+import type { FooterSection } from "@/types/constants";
 
 export const FOOTER_SECTIONS: FooterSection[] = [
   {
@@ -49,5 +46,3 @@ export const SOCIAL_LINKS = [
   { label: "TikTok", href: "https://tiktok.com", icon: "x" },
   { label: "Instagram", href: "https://instagram.com", icon: "i" },
 ];
-
-

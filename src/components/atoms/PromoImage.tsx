@@ -1,14 +1,13 @@
-import Image, { StaticImageData } from 'next/image';
-import styles from './PromoImage.module.css';
+import Image from "next/image";
+import styles from "./PromoImage.module.css";
+import type { PromoImageProps } from "@/types/components";
 
-export type PromoImageProps = {
-  src: string | StaticImageData;
-  alt: string;
-  aspectRatio?: string; // e.g. "16/13"
-  className?: string;
-};
-
-export function PromoImage({ src, alt, aspectRatio = '16/13', className = '' }: PromoImageProps) {
+export function PromoImage({
+  src,
+  alt,
+  aspectRatio = "16/13",
+  className = "",
+}: PromoImageProps) {
   return (
     <div className={`${styles.root} ${className}`.trim()}>
       <div className={styles.frame} style={{ aspectRatio }}>

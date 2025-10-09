@@ -1,7 +1,4 @@
-export type NavItem = {
-  label: string;
-  href: string;
-};
+import type { NavItem } from "@/types/constants";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Menu", href: "/menu" },
@@ -15,5 +12,3 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Franchising", href: "/franchising" },
   { label: "Sign in", href: "/signin" },
 ];
-
-
