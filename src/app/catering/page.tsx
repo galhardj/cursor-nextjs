@@ -33,7 +33,7 @@ const DUMMY_EXPENSES: Expense[] = [
   },
 ];
 
-const CateringPage: React.FC = () => {
+export default function CateringPage() {
   const [expenses, setExpenses] = useState<Expense[]>(DUMMY_EXPENSES);
 
   const addExpenseHandler = (expense: Expense) => {
@@ -51,6 +51,4 @@ const CateringPage: React.FC = () => {
       <Expenses items={expenses} />
     </div>
   );
-};
-
-export default CateringPage;
+}
