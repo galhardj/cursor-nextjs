@@ -1,6 +1,6 @@
-import React from 'react';
-import { ExpensesFilterProps } from '../../types/expense';
-import './ExpensesFilter.css';
+import React from "react";
+import { ExpensesFilterProps } from "../../types/expense";
+import styles from "./ExpensesFilter.module.css";
 
 const ExpensesFilter: React.FC<ExpensesFilterProps> = (props) => {
   const yearPickHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -8,8 +8,8 @@ const ExpensesFilter: React.FC<ExpensesFilterProps> = (props) => {
   };
 
   return (
-    <div className="expenses-filter">
-      <div className="expenses-filter__control">
+    <div className={styles["expenses-filter"]}>
+      <div className={styles["expenses-filter__control"]}>
         <label>Filter by year</label>
         <select value={props.selected} onChange={yearPickHandler}>
           <option value="2022">2022</option>

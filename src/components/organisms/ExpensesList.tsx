@@ -1,18 +1,20 @@
-import React, { Fragment } from 'react';
-import ExpenseItem from '../molecules/ExpenseItem';
-import { ExpensesListProps } from '../../types/expense';
-import './ExpensesList.css';
+import React, { Fragment } from "react";
+import ExpenseItem from "../molecules/ExpenseItem";
+import { ExpensesListProps } from "../../types/expense";
+import styles from "./ExpensesList.module.css";
 
 const ExpensesList: React.FC<ExpensesListProps> = (props) => {
   if (props.items.length === 0) {
     return (
-      <h2 className="expenses-list__fallback">There&apos;s no expense yet in the selected year</h2>
+      <h2 className={styles["expenses-list__fallback"]}>
+        There&apos;s no expense yet in the selected year
+      </h2>
     );
   }
 
   return (
     <Fragment>
-      <ul className="expenses-list">
+      <ul className={styles["expenses-list"]}>
         {props.items.map((expense) => (
           <ExpenseItem
             key={expense.id}

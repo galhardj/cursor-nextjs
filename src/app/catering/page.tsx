@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import NewExpense from "../../components/organisms/NewExpense";
 import Expenses from "../../components/organisms/Expenses";
-import "./catering.css";
+import styles from "./catering.module.css";
 import { DUMMY_EXPENSES } from "@/constants/expenses";
 import { Expense } from "@/types/expense";
 
@@ -15,8 +15,8 @@ export default function CateringPage() {
   };
 
   return (
-    <div className="catering-page">
-      <div className="catering-header">
+    <div className={styles["catering-page"]}>
+      <div className={styles["catering-header"]}>
         <h1>Expense Tracker</h1>
         <p>Track and manage your expenses efficiently</p>
       </div>
