@@ -1,0 +1,55 @@
+---
+alwaysApply: true
+---
+
+# CSS Module Best Practice
+
+**MANDATORY**: All React components MUST use CSS modules for styling. Inline styles and Tailwind classes directly in JSX are prohibited.
+
+## Rules:
+
+1. **Every component must have a corresponding `.module.css` file** in the same directory
+2. **Import and use CSS modules** with `import styles from "./ComponentName.module.css"`
+3. **Apply styles using className** with `className={styles.className}`
+4. **Use Tailwind classes within CSS modules** using `@apply` directive when needed
+5. **No inline styles** in JSX (except for dynamic styles like `style={{ height: dynamicValue }}`)
+6. **No direct Tailwind classes** in JSX className attributes
+
+## Examples:
+
+✅ **CORRECT:**
+
+```tsx
+import styles from "./Button.module.css";
+
+export function Button({ children }) {
+  return <button className={styles.primary}>{children}</button>;
+}
+```
+
+```css
+/* Button.module.css */
+.primary {
+  @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700;
+}
+```
+
+❌ **INCORRECT:**
+
+```tsx
+export function Button({ children }) {
+  return (
+    <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      {children}
+    </button>
+  );
+}
+```
+
+## Benefits:
+
+- Better maintainability and organization
+- Scoped styles prevent CSS conflicts
+- Easier to refactor and update styles
+- Consistent styling approach across the codebase
+- Better performance (CSS modules are optimized)
