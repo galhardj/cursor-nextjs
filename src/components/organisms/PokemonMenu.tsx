@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import PokemonList from "@/components/molecules/PokemonList";
+import styles from "./PokemonMenu.module.css";
 import type { PokemonApiResponse, Pokemon } from "@/types/pokemon";
 
 const PokemonMenu: React.FC = () => {
@@ -41,20 +42,20 @@ const PokemonMenu: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-        <span className="ml-3 text-gray-600">Loading Pokemon...</span>
+      <div className={styles.loadingContainer}>
+        <div className={styles.spinner}></div>
+        <span className={styles.loadingText}>Loading Pokemon...</span>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="text-center py-8">
-        <p className="text-red-600 mb-4">Error: {error}</p>
+      <div className={styles.errorContainer}>
+        <p className={styles.errorMessage}>Error: {error}</p>
         <button
           onClick={() => window.location.reload()}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+          className={styles.retryButton}
         >
           Try Again
         </button>
@@ -63,10 +64,10 @@ const PokemonMenu: React.FC = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">Pokemon Menu</h1>
-        <p className="text-gray-600">
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Pokemon Menu</h1>
+        <p className={styles.description}>
           Discover amazing Pokemon from the PokeAPI. Click on any Pokemon to
           view more details.
         </p>

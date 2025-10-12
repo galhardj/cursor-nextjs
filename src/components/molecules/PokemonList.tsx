@@ -1,5 +1,6 @@
 import React from "react";
 import PokemonCard from "@/components/atoms/PokemonCard";
+import styles from "./PokemonList.module.css";
 import type { PokemonListProps } from "@/types/pokemon";
 
 const PokemonList: React.FC<PokemonListProps> = ({
@@ -8,16 +9,14 @@ const PokemonList: React.FC<PokemonListProps> = ({
 }) => {
   if (!pokemon || pokemon.length === 0) {
     return (
-      <div className="text-center py-8">
-        <p className="text-gray-500">No Pokemon found.</p>
+      <div className={styles.emptyState}>
+        <p className={styles.emptyMessage}>No Pokemon found.</p>
       </div>
     );
   }
 
   return (
-    <div
-      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ${className}`}
-    >
+    <div className={`${styles.grid} ${className}`.trim()}>
       {pokemon.map((pokemonItem) => (
         <PokemonCard key={pokemonItem.name} pokemon={pokemonItem} />
       ))}
