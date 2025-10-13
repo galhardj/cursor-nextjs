@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import PokemonList from "@/components/molecules/PokemonList";
 import styles from "./PokemonMenu.module.css";
 import type { PokemonApiResponse, Pokemon } from "@/types/pokemon";
+import { fetchApi } from "@/lib/api";
 
 const PokemonMenu: React.FC = () => {
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);
@@ -16,15 +17,9 @@ const PokemonMenu: React.FC = () => {
         setLoading(true);
         setError(null);
 
-        const response = await fetch(
+        const data = await fetchApi<PokemonApiResponse>(
           "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
         );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data: PokemonApiResponse = await response.json();
         setPokemon(data.results);
       } catch (err) {
         setError(
