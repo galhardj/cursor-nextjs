@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
+  max-width: 2rem;
 }
 
 .chart-bar__inner {
@@ -25,6 +27,8 @@
 
 .chart-bar__label {
   font-weight: bold;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   text-align: center;
+  margin-top: 0.25rem;
+  color: #333;
 }
