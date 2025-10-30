@@ -4,7 +4,7 @@
   @apply w-full;
 }
 .frame {
-  @apply relative w-full rounded overflow-hidden;
+  @apply relative w-full overflow-hidden rounded;
 }
 .image {
   @apply object-cover;

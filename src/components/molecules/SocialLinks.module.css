@@ -4,7 +4,7 @@
   @apply flex items-center gap-4;
 }
 .item {
-  @apply w-8 h-8 rounded-full border border-[#8a0028] text-[#8a0028] flex items-center justify-center hover:bg-[#8a0028] hover:text-white;
+  @apply flex h-8 w-8 items-center justify-center rounded-full border border-[#8a0028] text-[#8a0028] hover:bg-[#8a0028] hover:text-white;
 }
 .icon {
   @apply text-sm font-semibold;

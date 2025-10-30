@@ -5,7 +5,7 @@ import styles from "./Chart.module.css";
 
 const Chart: React.FC<ChartProps> = (props) => {
   const expenseValues = props.dataPoints.map(
-    (expenseValue) => expenseValue.value
+    (expenseValue) => expenseValue.value,
   );
   const maxValue = Math.max(...expenseValues);
 

@@ -14,5 +14,3 @@ describe("Footer", () => {
     expect(screen.getByLabelText(/Instagram/i)).toBeInTheDocument();
   });
 });
-
-

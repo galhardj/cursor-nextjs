@@ -20,5 +20,3 @@ export function SocialLinks() {
 }
 
 export default SocialLinks;
-
-

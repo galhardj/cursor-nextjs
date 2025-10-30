@@ -1,7 +1,7 @@
-import { CATERING_PROMO } from '@/constants/catering';
-import CateringPromoCopy from '@/components/molecules/CateringPromoCopy';
-import PromoImage from '@/components/atoms/PromoImage';
-import styles from './CateringPromo.module.css';
+import { CATERING_PROMO } from "@/constants/catering";
+import CateringPromoCopy from "@/components/molecules/CateringPromoCopy";
+import PromoImage from "@/components/atoms/PromoImage";
+import styles from "./CateringPromo.module.css";
 
 export function CateringPromo() {
   return (

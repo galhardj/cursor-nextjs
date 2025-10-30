@@ -23,7 +23,7 @@ export const fetchApi = async <T>(url: string): Promise<T> => {
     throw new Error(
       err instanceof Error
         ? err.message
-        : "An error occurred while fetching data"
+        : "An error occurred while fetching data",
     );
   }
 };

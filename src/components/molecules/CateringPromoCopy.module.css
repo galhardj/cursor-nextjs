@@ -4,11 +4,11 @@
   @apply w-full;
 }
 .heading {
-  @apply text-3xl md:text-4xl font-semibold text-gray-900 mb-4;
+  @apply mb-4 text-3xl font-semibold text-gray-900 md:text-4xl;
 }
 .lead {
-  @apply text-gray-700 mb-4;
+  @apply mb-4 text-gray-700;
 }
 .body {
-  @apply text-gray-700 mb-6;
+  @apply mb-6 text-gray-700;
 }

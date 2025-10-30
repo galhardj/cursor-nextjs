@@ -1,0 +1,9 @@
+@reference "../../app/globals.css";
+
+.base {
+  @apply mb-2 block text-sm font-medium text-gray-900;
+}
+
+.required {
+  @apply ml-1 text-red-500;
+}

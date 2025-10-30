@@ -1,0 +1,21 @@
+@reference "../../app/globals.css";
+
+.container {
+  @apply mb-8 flex flex-col;
+}
+
+.label {
+  @apply mb-4 text-sm font-medium text-gray-900;
+}
+
+.required {
+  @apply ml-1 text-red-500;
+}
+
+.options {
+  @apply flex flex-wrap gap-3;
+}
+
+.option {
+  @apply flex-shrink-0;
+}

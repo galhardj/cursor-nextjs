@@ -52,6 +52,6 @@ export interface NewExpenseProps {
 }
 
 export interface ExpenseFormProps {
-  onSaveExpenseData: (expenseData: Omit<Expense, 'id'>) => void;
+  onSaveExpenseData: (expenseData: Omit<Expense, "id">) => void;
   onUpdateExpenseView: () => void;
 }

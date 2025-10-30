@@ -4,5 +4,5 @@
   @apply w-full;
 }
 .container {
-  @apply max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center;
+  @apply mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 py-12 md:grid-cols-2 md:gap-12;
 }

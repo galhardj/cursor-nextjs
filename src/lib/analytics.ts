@@ -3,15 +3,19 @@
 
 export const initGA = (): void => {
   // Placeholder for Google Analytics initialization
-  console.log('Analytics initialized');
+  console.log("Analytics initialized");
 };
 
 export const logPageView = (): void => {
   // Placeholder for page view tracking
-  console.log('Page view logged');
+  console.log("Page view logged");
 };
 
-export const logEvent = (category: string, action: string, label: string): void => {
+export const logEvent = (
+  category: string,
+  action: string,
+  label: string,
+): void => {
   // Placeholder for event tracking
   console.log(`Event logged: ${category} - ${action} - ${label}`);
 };

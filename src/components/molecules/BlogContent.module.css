@@ -1,0 +1,68 @@
+@reference "../../app/globals.css";
+
+.content {
+  @apply mx-auto max-w-4xl;
+}
+
+.h1 {
+  @apply mt-8 mb-4 text-3xl font-bold text-gray-900 first:mt-0 md:text-4xl;
+}
+
+.h2 {
+  @apply mt-6 mb-3 text-2xl font-bold text-gray-900 md:text-3xl;
+}
+
+.h3 {
+  @apply mt-5 mb-2 text-xl font-semibold text-gray-900 md:text-2xl;
+}
+
+.paragraph {
+  @apply mb-4 leading-relaxed text-gray-700;
+}
+
+.listItem {
+  @apply mb-2 ml-4 leading-relaxed text-gray-700;
+}
+
+.codeBlock {
+  @apply my-4 rounded-lg bg-gray-100 p-4 font-mono text-sm;
+}
+
+/* Additional prose styles */
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  @apply text-gray-900;
+}
+
+.content p {
+  @apply leading-relaxed text-gray-700;
+}
+
+.content ul,
+.content ol {
+  @apply my-4;
+}
+
+.content li {
+  @apply my-2;
+}
+
+.content blockquote {
+  @apply my-4 border-l-4 border-gray-300 pl-4 text-gray-600 italic;
+}
+
+.content code {
+  @apply rounded bg-gray-100 px-2 py-1 font-mono text-sm;
+}
+
+.content pre {
+  @apply my-4 overflow-x-auto rounded-lg bg-gray-100 p-4;
+}
+
+.content pre code {
+  @apply bg-transparent p-0;
+}

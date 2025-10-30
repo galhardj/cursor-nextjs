@@ -1,0 +1,37 @@
+@reference "../../../app/globals.css";
+
+.container {
+  @apply min-h-screen bg-white py-8;
+}
+
+.backButton {
+  @apply mx-auto mb-8 max-w-4xl px-6;
+}
+
+.contentWrapper {
+  @apply px-6 py-8;
+}
+
+.footer {
+  @apply mx-auto mt-12 max-w-4xl border-t border-gray-200 px-6 py-8;
+}
+
+.authorCard {
+  @apply mb-8;
+}
+
+.authorInfo {
+  @apply space-y-2;
+}
+
+.authorName {
+  @apply text-xl font-semibold text-gray-900;
+}
+
+.authorBio {
+  @apply leading-relaxed text-gray-600;
+}
+
+.navigation {
+  @apply flex justify-center;
+}

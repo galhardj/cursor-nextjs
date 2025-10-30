@@ -1,10 +1,10 @@
 @reference "../../app/globals.css";
 
 .grid {
-  @apply grid grid-cols-2 md:grid-cols-4 gap-8 w-full;
+  @apply grid w-full grid-cols-2 gap-8 md:grid-cols-4;
 }
 .sectionTitle {
-  @apply text-lg font-semibold mb-3;
+  @apply mb-3 text-lg font-semibold;
 }
 .list {
   @apply space-y-2;

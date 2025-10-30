@@ -18,14 +18,14 @@ const PokemonMenu: React.FC = () => {
         setError(null);
 
         const data = await fetchApi<PokemonApiResponse>(
-          "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
+          "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20",
         );
         setPokemon(data.results);
       } catch (err) {
         setError(
           err instanceof Error
             ? err.message
-            : "An error occurred while fetching Pokemon data"
+            : "An error occurred while fetching Pokemon data",
         );
       } finally {
         setLoading(false);

@@ -1,6 +1,6 @@
-import FooterLinks from '@/components/molecules/FooterLinks';
-import SocialLinks from '@/components/molecules/SocialLinks';
-import styles from './Footer.module.css';
+import FooterLinks from "@/components/molecules/FooterLinks";
+import SocialLinks from "@/components/molecules/SocialLinks";
+import styles from "./Footer.module.css";
 
 export function Footer() {
   return (
@@ -17,7 +17,8 @@ export function Footer() {
           </div>
         </div>
         <p className={styles.copyright}>
-          © Pret A Manger 2025. Addresses and registrations are placeholders for demo purposes.
+          © Pret A Manger 2025. Addresses and registrations are placeholders
+          for demo purposes.
         </p>
       </div>
     </footer>

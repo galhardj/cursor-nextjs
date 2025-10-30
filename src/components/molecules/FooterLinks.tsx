@@ -24,5 +24,3 @@ export function FooterLinks() {
 }
 
 export default FooterLinks;
-
-

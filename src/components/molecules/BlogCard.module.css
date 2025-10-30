@@ -1,0 +1,73 @@
+@reference "../../app/globals.css";
+
+.card {
+  @apply overflow-hidden transition-transform hover:scale-105;
+}
+
+.imageContainer {
+  @apply relative h-48 overflow-hidden;
+}
+
+.image {
+  @apply h-full w-full object-cover;
+}
+
+.featuredBadge {
+  @apply absolute top-3 left-3 rounded bg-amber-200 px-2 py-1 text-xs font-medium text-gray-900;
+}
+
+.content {
+  @apply space-y-4 p-6;
+}
+
+.meta {
+  @apply flex items-center justify-between text-sm text-gray-600;
+}
+
+.category {
+  @apply font-medium tracking-wide text-gray-500 uppercase;
+}
+
+.readTime {
+  @apply text-gray-500;
+}
+
+.title {
+  @apply text-xl leading-tight font-bold text-gray-900;
+}
+
+.titleLink {
+  @apply transition-colors hover:text-gray-700;
+}
+
+.excerpt {
+  @apply line-clamp-3 leading-relaxed text-gray-600;
+}
+
+.footer {
+  @apply flex items-center justify-between border-t border-gray-100 pt-4;
+}
+
+.author {
+  @apply flex flex-col space-y-1;
+}
+
+.authorName {
+  @apply text-sm font-medium text-gray-900;
+}
+
+.publishDate {
+  @apply text-xs text-gray-500;
+}
+
+.readMore {
+  @apply text-sm;
+}
+
+.tags {
+  @apply flex flex-wrap gap-2 pt-2;
+}
+
+.tag {
+  @apply rounded bg-gray-100 px-2 py-1 text-xs text-gray-700;
+}

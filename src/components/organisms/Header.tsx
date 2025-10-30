@@ -1,6 +1,6 @@
-import Logo from '@/components/atoms/Logo';
-import NavBar from '@/components/molecules/NavBar';
-import styles from './Header.module.css';
+import Logo from "@/components/atoms/Logo";
+import NavBar from "@/components/molecules/NavBar";
+import styles from "./Header.module.css";
 
 export function Header() {
   return (

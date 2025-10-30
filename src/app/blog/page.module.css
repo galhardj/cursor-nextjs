@@ -1,0 +1,41 @@
+@reference "../../app/globals.css";
+
+.container {
+  @apply min-h-screen bg-white py-12;
+}
+
+.header {
+  @apply mx-auto mb-12 max-w-6xl px-6 text-center;
+}
+
+.title {
+  @apply mb-4 text-4xl font-bold text-gray-900 md:text-5xl;
+}
+
+.subtitle {
+  @apply mx-auto max-w-2xl text-lg text-gray-600 md:text-xl;
+}
+
+.featuredSection {
+  @apply mx-auto mb-16 max-w-6xl px-6;
+}
+
+.sectionTitle {
+  @apply mb-8 text-2xl font-bold text-gray-900 md:text-3xl;
+}
+
+.featuredGrid {
+  @apply grid grid-cols-1 gap-8 lg:grid-cols-2;
+}
+
+.featuredCard {
+  @apply h-full;
+}
+
+.articlesSection {
+  @apply mx-auto max-w-6xl px-6;
+}
+
+.articlesGrid {
+  @apply grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3;
+}
